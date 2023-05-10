@@ -138,6 +138,8 @@ const getInfoByName = async (name) => {
   return infoName;
 };
 
+// Postear un videjuego POST.
+
 module.exports = {
   getAllVideoGamesInfo,
   getAPIinfo,

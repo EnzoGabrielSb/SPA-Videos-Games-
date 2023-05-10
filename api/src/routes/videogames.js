@@ -1,4 +1,6 @@
 const { Router } = require("express");
+const { Genre, Videogame, videogame_genre } = require("../db");
+const { v4: uuidv4 } = require("uuid");
 const {
   getAllVideoGamesInfo,
   getAPIinfo,
@@ -49,6 +51,10 @@ videogamesRoutes.get("/:id", async (req, res) => {
   } catch (error) {
     res.status(404).send("Id no encontrado.");
   }
+  {
+    {
+    }
+  }
 });
 
 videogamesRoutes.post("/", async (req, res) => {
@@ -59,7 +65,7 @@ videogamesRoutes.post("/", async (req, res) => {
     let genreDB = await Genre.findAll({
       where: { name: genre },
     });
-    if (genreDB.length !== genre.length) {
+    if (genreDB.length === 0) {
       return res.json({ error: "Gener not found" });
     }
 
