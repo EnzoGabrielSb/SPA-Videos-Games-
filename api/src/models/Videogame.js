@@ -10,28 +10,28 @@ module.exports = (sequelize) => {
       primaryKey: true,
     },
     name: {
-      type: DataTypes.STRING, //Cadena de letras.
+      type: DataTypes.STRING, //Cadena de letras
       allowNull: false,
     },
     description: {
       type: DataTypes.TEXT, //Texto
       allowNull: false,
     },
+    released: {
+      type: DataTypes.DATEONLY, //Fecha unica
+    },
+    rating: {
+      type: DataTypes.FLOAT, //Decimal
+    },
     platforms: {
-      type: DataTypes.ARRAY(DataTypes.STRING), //Array de Strings.
+      type: DataTypes.ARRAY(DataTypes.STRING), //Arreglo con Cadena de letras
       allowNull: false,
     },
     image: {
-      type: DataTypes.TEXT,
+      type: DataTypes.TEXT, //URL
       allowNull: false,
     },
-    releasedate: {
-      type: DataTypes.DATEONLY,
-    },
-    rating: {
-      type: DataTypes.FLOAT,
-    },
-    isCreatedInDataBase: {
+    createdInDb: {
       type: DataTypes.BOOLEAN,
       allowNull: false,
       defaultValue: true,
