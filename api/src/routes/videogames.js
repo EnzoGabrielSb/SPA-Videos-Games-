@@ -3,10 +3,8 @@ const { Genre, Videogame, videogame_genre } = require("../db");
 const { v4: uuidv4 } = require("uuid");
 const {
   getAllVideoGamesInfo,
-  getAPIinfo,
   getApiById,
   getInfoByName,
-  getApiByName,
 } = require("./controllers/videogames");
 
 const videogamesRoutes = Router();
@@ -16,10 +14,10 @@ videogamesRoutes.get("/", async (req, res) => {
 
   try {
     if (name) {
-      const nameVideoGame = await getApiByName(name);
+      const nameVideoGame = await getInfoByName(name);
       res.send(nameVideoGame);
     } else {
-      const allVideoGames = await getAPIinfo();
+      const allVideoGames = await getAllVideoGamesInfo();
       res.status(200).json(allVideoGames);
     }
   } catch (error) {
