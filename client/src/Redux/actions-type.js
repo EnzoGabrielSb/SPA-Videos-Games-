@@ -1,0 +1,9 @@
+export const findVideoGame = "BUSCAR_LOS_JUEGOS";
+export const findVideoGameForName = "BUSCAR_POR_NOMBRE";
+export const findVideoGameForId = "BUSCAR_POR_ID";
+export const dataBase = "JUEGOS_BASE_DATOS";
+export const findGeners = "GENEROS_DATABASE";
+export const findGamesOnlyGenres = "JUEGOS_POR_GENERO";
+export const findGamesOnlyRating = "JUEGOS_POR_RATING";
+export const alphabeticalOrder = "JUEGOS_ORDEN_ALFABETICO";
+export const postSubmit = "CREAR_JUEGO";

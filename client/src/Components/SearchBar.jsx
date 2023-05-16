@@ -3,10 +3,9 @@ import { Link } from "react-router-dom";
 import { useState } from "react";
 
 const SearchBar = () => {
-  const [videogames, setVideogames] = useState("");
-
   return (
-    <>
+    <div>
+      <h1>Search Bar</h1>
       <select onChange={handlerOrder}>
         <option value="order" disabled="disabled">
           Filter VideoGames By:
@@ -33,7 +32,7 @@ const SearchBar = () => {
           <span>ADD VIDEO GAME🎮 </span>
         </button>
       </div>
-    </>
+    </div>
   );
 };
 
