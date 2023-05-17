@@ -98,9 +98,9 @@ h1 {
   animation: btn-anim1 2s linear infinite;
 }
 
+/*
 button {
   all: unset;
-  /* Establecer otras propiedades a sus valores predeterminados */
   margin: 0;
   padding: 0;
   border: none;
@@ -110,6 +110,7 @@ button {
   text-align: inherit;
   cursor: pointer;
 }
+*/
 
 p {
   font-size: 16px;

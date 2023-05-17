@@ -1,39 +1,36 @@
-import "../Styles/SearchBar.css";
-import { Link } from "react-router-dom";
-import { useState } from "react";
+import { useState, useRef } from "react";
+import { findByName } from "../Redux/actions";
+import { useDispatch } from "react-redux";
+import { NavLink } from "react-router-dom";
 
-const SearchBar = () => {
+export default function Nav() {
+  const dispatch = useDispatch();
+  const [state, setState] = useState("");
+  const miRef = useRef(null);
+
+  function handleClick() {
+    dispatch(findByName(state));
+  }
+
+  function findGame() {
+    setState(miRef.current.value);
+    if (miRef.current.value === "") {
+      dispatch(findByName(""));
+    }
+  }
+
   return (
     <div>
-      <h1>Search Bar</h1>
-      <select onChange={handlerOrder}>
-        <option value="order" disabled="disabled">
-          Filter VideoGames By:
-        </option>
-        <option value="VG-API">VideoGames Web🌐</option>
-        <option value="VG-DB">VideoGames DataBase💻 </option>
-      </select>
-      <select onChange={handlerFilter}>
-        <option value="filter" disabled="disabled">
-          Order VideoGames By:
-        </option>
-        <option value="A-B">A-B</option>
-        <option value="Rating">Rating</option>
-      </select>
-
-      <div class="input-group">
+      <div>
         <input
           type="text"
-          value={character}
-          onChange={handleChange}
-          id="input-field"
+          placeholder="Search Video Game..."
+          ref={miRef}
+          onChange={() => findGame()}
         />
-        <button onClick={() => onSearch(character)} class="submit-button">
-          <span>ADD VIDEO GAME🎮 </span>
-        </button>
+        <button onClick={handleClick}>Search Game</button>
+        <NavLink to="/app/home/create">Create Videogames</NavLink>
       </div>
     </div>
   );
-};
-
-export default SearchBar;
+}

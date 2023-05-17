@@ -3,6 +3,7 @@ import LandingPage from "./Components/LandingPage";
 import SearchBar from "./Components/SearchBar";
 import AboutMe from "./Components/AboutMe";
 import FormPage from "./Components/FormPage";
+import Cards from "./Components/Cards";
 import { useState, useEffect } from "react";
 import { Routes, Route, useLocation, useNavigate } from "react-router-dom";
 
@@ -16,7 +17,7 @@ function App() {
   const login = (userData) => {
     if (userData.password === password && userData.username === username) {
       setAccess(true);
-      navigate("/FormPage");
+      navigate("/home");
     }
   };
 
@@ -34,6 +35,7 @@ function App() {
         <Route path="/" element={<LandingPage login={login} />} />
         <Route path="/aboutMe" element={<AboutMe />} />
         <Route path="/FormPage" element={<FormPage />} />
+        <Route path="/home" element={<Cards />} />
       </Routes>
     </div>
   );
