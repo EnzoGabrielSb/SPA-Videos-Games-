@@ -36,13 +36,13 @@ function Cards({ getAllGames, videogames, findById }) {
                 <NavLink to={`/home/${e.id}`}>
                   <p>{e.name}</p>
                   <img src={e.image} alt="Imagen de videogames" />
-                  <p>Release: {e.released}</p>
+                  <p>Release: {e.releasedate}</p>
                   <div>
                     <p>
-                      <span> Genres: </span>
-                      {e.genre?.map((ele, i) => {
-                        if (i < 3) return <span key={i}>{ele.name}</span>;
-                      })}
+                      Genrees:
+                      {e.genres.map((ele, i) => (
+                        <p key={i}>{ele}</p>
+                      ))}
                     </p>
                     <p> Rating: {e.rating}</p>
                   </div>

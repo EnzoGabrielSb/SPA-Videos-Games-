@@ -54,22 +54,22 @@ export const getGenres = () => {
 
 export const gamesByGenre = (name) => {
   return async function (dispatch) {
-    let gamesByGenre = await axios("http://localhost:3001/videogames");
+    let gamesByGenres = await axios("http://localhost:3001/videogames");
     return dispatch({
       type: findGamesOnlyGenres,
-      payload: gamesByGenre.data,
+      payload: gamesByGenres.data,
       name: name,
     });
   };
 };
 
-export const gamesByRating = (ZA) => {
+export const gamesByRating = (descAsc) => {
   return async function (dispatch) {
     let gamesByRating = await axios("http://localhost:3001/videogames");
     return dispatch({
       type: findGamesOnlyRating,
       payload: gamesByRating.data,
-      ZA: ZA,
+      descAsc: descAsc,
     });
   };
 };

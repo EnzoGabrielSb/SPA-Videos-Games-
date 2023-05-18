@@ -29,29 +29,10 @@ videogamesRoutes.get("/:id", async (req, res) => {
   const { id } = req.params;
 
   try {
-    if (!Number(id)) {
-      let juegoId = await videogamesRoutes.findOne({
-        where: {
-          id,
-        },
-        include: {
-          model: Genre,
-          attributes: ["name"],
-          through: {
-            attributes: [],
-          },
-        },
-      });
-      return res.json(juegoId);
-    }
     let gameId = await getApiById(id);
     res.status(200).json(gameId);
   } catch (error) {
     res.status(404).send("Id no encontrado.");
-  }
-  {
-    {
-    }
   }
 });
 

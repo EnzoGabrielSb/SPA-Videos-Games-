@@ -49,10 +49,10 @@ const reducer = (state = initialStore, action) => {
     case findGamesOnlyGenres:
       return {
         ...state,
-        videoGames: action.payload.filter((game) => {
-          for (let i = 0; i < game.genres.length; i++) {
-            if (game.genres[i].name === action.name) {
-              return game;
+        videoGames: action.payload.filter((e) => {
+          for (let i = 0; e.genres.length; i++) {
+            if (e.genres[i].name === action.name) {
+              return e;
             }
           }
         }),

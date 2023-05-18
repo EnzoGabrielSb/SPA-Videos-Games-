@@ -48,11 +48,11 @@ const getAPIinfo = async () => {
     return {
       id: game.id,
       name: game.name,
-      description: game.description,
       platforms: game.platforms.map((e) => e.platform.name),
       image: game.background_image,
       releasedate: game.released,
       rating: game.rating,
+      genres: game.genres.map((e) => e.name),
     };
   });
 
@@ -83,25 +83,21 @@ const getAllVideoGamesInfo = async () => {
 // OBTENGO UN VIDEO JUEGO POR 'idVideogame'
 
 const getApiById = async (id) => {
-  try {
-    let game = await axios.get(
-      `https://api.rawg.io/api/games/${id}?key=${API_KEY}`
-    );
-    game = game.data;
-    let gameOk = {
-      id: game.id,
-      name: game.name,
-      genres: game.genres?.map((e) => e.name),
-      platforms: game.platforms?.map((e) => e.platform.name),
-      released: game.released,
-      img: game.background_image,
-      rating: game.rating,
-      description: game.description_raw,
-    };
-    return gameOk;
-  } catch (error) {
-    throw new Error(error);
-  }
+  let game = await axios.get(
+    `https://api.rawg.io/api/games/${id}?key=${API_KEY}`
+  );
+  let response = game.data;
+
+  return {
+    id: response.id,
+    name: response.name,
+    genres: response.genres?.map((e) => e.name),
+    platforms: response.platforms?.map((e) => e.platform.name),
+    released: response.released,
+    img: response.background_image,
+    rating: response.rating,
+    description: response.description_raw,
+  };
 };
 
 // OBTENGO UN VIDEO JUEGO POR 'name?='
