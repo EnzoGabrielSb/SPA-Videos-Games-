@@ -1,5 +1,8 @@
 import "../Styles/FormPage.css";
 import React, { useState } from "react";
+import { connect } from "react-redux";
+import { submitPost } from "../Redux/actions";
+import { useNavigate } from "react-router-dom";
 
 const FormPage = ({ submitPost }) => {
   const [state, setState] = useState({
@@ -11,6 +14,8 @@ const FormPage = ({ submitPost }) => {
     rating: 0,
     genre: [],
   });
+
+  let historyHome = useNavigate();
 
   const handleChange = (e) => {
     setState({
@@ -80,6 +85,7 @@ const FormPage = ({ submitPost }) => {
     }
 
     await submitPost(state);
+    historyHome("/home");
     alert("The game was created!");
   };
 
@@ -457,4 +463,12 @@ const FormPage = ({ submitPost }) => {
   );
 };
 
-export default FormPage;
+const mapStateToProps = (store) => {
+  return {
+    resPost: store.resPost,
+    genres: store.genres,
+    platforms: store.platforms,
+  };
+};
+
+export default connect(mapStateToProps, { submitPost })(FormPage);

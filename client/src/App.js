@@ -33,9 +33,9 @@ function App() {
         <SearchBar />
       )}
 
-      {location.pathname !== "/" && location.pathname !== "/aboutMe" && (
-        <Order />
-      )}
+      {location.pathname !== "/" &&
+        location.pathname !== "/aboutMe" &&
+        location.pathname !== "/createvideogame" && <Order />}
 
       <Routes>
         <Route path="/" element={<LandingPage login={login} />} />
@@ -43,6 +43,7 @@ function App() {
         <Route path="/FormPage" element={<FormPage />} />
         <Route path="/home" element={<Cards />} />
         <Route path="/home/:id" element={<CardDetail />} />
+        <Route path="/createvideogame" element={<FormPage />} />
       </Routes>
     </div>
   );

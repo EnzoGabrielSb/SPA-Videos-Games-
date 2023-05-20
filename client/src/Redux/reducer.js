@@ -50,8 +50,8 @@ const reducer = (state = initialStore, action) => {
       return {
         ...state,
         videoGames: action.payload.filter((e) => {
-          for (let i = 0; e.genres.length; i++) {
-            if (e.genres[i].name === action.name) {
+          for (let i = 0; i < e.genres.length; i++) {
+            if (e.genres[i].includes(action.name)) {
               return e;
             }
           }
@@ -85,7 +85,7 @@ const reducer = (state = initialStore, action) => {
       return {
         ...state,
         videoGames:
-          action.descAsc === "A - Z"
+          action.ZA === "A - Z"
             ? action.payload.sort(function (a, b) {
                 if (a.name > b.name) {
                   return 1;

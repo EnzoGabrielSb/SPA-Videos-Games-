@@ -85,9 +85,9 @@ export const orderAlphabetic = (ZA) => {
   };
 };
 
-export const submitPost = (newGame) => {
+export const submitPost = (datos) => {
   return async function () {
-    let postgame = await axios.post();
+    let postgame = await axios.post("http://localhost:3001/videogames", datos);
     return {
       type: postSubmit,
       postgame: postgame.data,

@@ -1,11 +1,7 @@
 import React, { useRef } from "react";
 import { connect } from "react-redux";
-import {
-  orderAlphabetic,
-  gamesByGenre,
-  gamesByRating,
-  gamesDatabase,
-} from "../Redux/actions";
+import { orderAlphabetic, gamesByGenre, gamesByRating } from "../Redux/actions";
+import "../Styles/Order.css";
 
 function Order({ orderAlphabetic, gamesByGenre, gamesByRating }) {
   let miRef = useRef(null);
@@ -24,22 +20,20 @@ function Order({ orderAlphabetic, gamesByGenre, gamesByRating }) {
   }
 
   return (
-    <div>
-      <div>
-        <label>Alphabetical Order</label>
+    <div className="full-container">
+      <div className="select">
         <select defaultValue="Select" ref={miRef} onChange={cambiarEstado}>
           <option disabled selected>
-            Select
+            Alphabetic
           </option>
           <option value="A - Z">A - Z</option>
           <option value="Z - A">Z - A</option>
         </select>
       </div>
-      <div>
-        <label>Filter Genres</label>
+      <div className="select">
         <select defaultValue="Select" ref={GenRef} onChange={OrderGenres}>
           <option disabled selected>
-            Select
+            Generes
           </option>
           <option value="Action">Action</option>
           <option value="Indie">Indie</option>
@@ -62,11 +56,10 @@ function Order({ orderAlphabetic, gamesByGenre, gamesByRating }) {
           <option value="Card">Card</option>
         </select>
       </div>
-      <div>
-        <label>Filter Rating</label>
+      <div className="select">
         <select defaultValue="Select" ref={RatRef} onChange={OrderRating}>
           <option disabled selected>
-            Select
+            Filter Rating
           </option>
           <option value="Asc">Lower Score</option>
           <option value="Desc">Higher Score</option>
