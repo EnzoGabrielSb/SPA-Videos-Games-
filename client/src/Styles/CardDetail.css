@@ -1,0 +1,58 @@
+.main-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+}
+
+.card-containter {
+  width: 80%;
+  height: auto;
+  background: linear-gradient(to right, rgb(137, 104, 255), rgb(175, 152, 255));
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  gap: 20px;
+  padding: 20px;
+  position: relative;
+  overflow: hidden;
+}
+
+.card-containter::before {
+  width: 150px;
+  height: 150px;
+  content: "";
+  background: linear-gradient(to right, rgb(142, 110, 255), rgb(208, 195, 255));
+  position: absolute;
+  z-index: 1;
+  border-radius: 50%;
+  right: -25%;
+  top: -25%;
+}
+
+.card-tittle {
+  font-size: 2.5em;
+  font-weight: 600;
+  color: rgb(241, 241, 241);
+  text-shadow: -1px -1px 0 black, 1px -1px 0 black, -1px 1px 0 black,
+    1px 1px 0 black;
+  z-index: 2;
+}
+
+.description-box {
+  background-color: rgb(0, 0, 0);
+  opacity: 0.7;
+}
+
+.card-description {
+  font-size: 1.1em;
+  color: rgb(241, 241, 241);
+  z-index: 2;
+  text-shadow: -1px -1px 0 black, 1px -1px 0 black, -1px 1px 0 black,
+    1px 1px 0 black;
+}
+
+.card-description a {
+  color: rgb(241, 241, 241);
+}

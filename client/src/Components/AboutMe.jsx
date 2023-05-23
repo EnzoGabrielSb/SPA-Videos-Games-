@@ -1,8 +1,11 @@
 import "../Styles/AboutMe.css";
+import Footer from "../Components/Footer";
+import SearchBtns from "./SearchBtns";
 
 const AboutMe = () => {
   return (
     <div class="containter">
+      <SearchBtns />
       <div class="card-client">
         <div class="user-picture">
           <svg viewBox="0 0 448 512" xmlns="http://www.w3.org/2000/svg">
@@ -10,7 +13,13 @@ const AboutMe = () => {
           </svg>
         </div>
         <p class="name-client">
-          Enzo Gabriel Vera
+          Enzo Gabriel David Vera
+          <br />
+          Age: 24 Years old
+          <br />
+          Nationality: Argentina
+          <br />
+          FullStack Developer
           <span>
             Full Stack Developer Lorem ipsum dolor sit amet, consectetur
             adipiscing elit. Nulla cursus vitae ex eu viverra. Mauris elementum
@@ -51,6 +60,7 @@ const AboutMe = () => {
           </a>
         </div>
       </div>
+      <Footer />
     </div>
   );
 };

@@ -5,8 +5,10 @@
 }
 
 .card-client {
+  margin: 15px;
   background: #2cb5a0;
-  width: 13rem;
+  width: 75%;
+  height: auto;
   padding-top: 25px;
   padding-bottom: 25px;
   padding-left: 20px;

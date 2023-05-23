@@ -3,6 +3,7 @@ import { connect } from "react-redux";
 import { getAllGames, findById } from "../Redux/actions";
 import { NavLink } from "react-router-dom";
 import Paginado from "../Components/Paginado";
+import Footer from "../Components/Footer";
 import "../Styles/Cards.css";
 
 function Cards({ getAllGames, videogames, findById }) {
@@ -27,26 +28,46 @@ function Cards({ getAllGames, videogames, findById }) {
 
   return (
     <div>
-      <div>
+      <div className="container">
         {
           // videogames.length ? videogames.map(el =>
           games.length ? (
             games.map((e) => (
-              <div key={e.id} onClick={() => findById(e.id)}>
-                <NavLink to={`/home/${e.id}`}>
-                  <p>{e.name}</p>
-                  <img src={e.image} alt="Imagen de videogames" />
-                  <p>Release: {e.releasedate}</p>
-                  <div>
-                    <p>
-                      Genrees:
-                      {e.genres.map((ele, i) => (
-                        <p key={i}>{ele}</p>
-                      ))}
-                    </p>
-                    <p> Rating: {e.rating}</p>
-                  </div>
-                </NavLink>
+              <div
+                className="card5"
+                style={{
+                  backgroundImage: `url(${e.image})`,
+                  backgroundRepeat: "no-repeat",
+                  backgroundSize: "cover",
+                  backgroundAttachment: "fixed",
+                }}
+              >
+                <div
+                  key={e.id}
+                  onClick={() => findById(e.id)}
+                  className="card5-content"
+                >
+                  <NavLink to={`/home/${e.id}`}>
+                    <div className="spanTitulo">
+                      <span>{e.name}</span>
+                    </div>
+                    <img src={e.image} alt="Imagen de videogames" />
+                    <div className="spanTitulo">
+                      <h5>Release: {e.releasedate}</h5>
+                    </div>
+                    <div className="spanTitulo">
+                      <h5>
+                        Genres:
+                        {e.genres.map((ele, i) => (
+                          <h6 key={i}>{ele}</h6>
+                        ))}
+                      </h5>
+                    </div>
+                    <div className="spanTitulo">
+                      <h5> Rating: {e.rating}</h5>
+                    </div>
+                  </NavLink>
+                </div>
               </div>
             ))
           ) : (
@@ -57,6 +78,7 @@ function Cards({ getAllGames, videogames, findById }) {
         }
       </div>
       <Paginado totalPages={totalPages} pages={pages} />
+      <Footer />
     </div>
   );
 }

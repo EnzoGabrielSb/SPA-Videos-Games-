@@ -95,11 +95,17 @@ const FormPage = ({ submitPost }) => {
         <h3>Create a new VideoGame!</h3>
         <div>
           <label htmlFor="">Name of the game:</label>
-          <input type="text" name="name" onChange={(e) => handleChange(e)} />
+          <input
+            className="info"
+            type="text"
+            name="name"
+            onChange={(e) => handleChange(e)}
+          />
         </div>
         <div>
           <label htmlFor="">Release:</label>
           <input
+            className="info"
             type="date"
             name="released"
             onChange={(e) => handleChange(e)}
@@ -107,7 +113,12 @@ const FormPage = ({ submitPost }) => {
         </div>
         <div>
           <label htmlFor="">Rating:</label>
-          <input type="text" name="rating" onChange={(e) => handleRating(e)} />
+          <input
+            className="info"
+            type="text"
+            name="rating"
+            onChange={(e) => handleRating(e)}
+          />
         </div>
 
         <div>
@@ -115,9 +126,8 @@ const FormPage = ({ submitPost }) => {
           <input type="url" name="image" onChange={(e) => handleChange(e)} />
         </div>
 
-        <div>
-          <label htmlFor="">Genre/s:</label>
-
+        <label htmlFor="">Genre/s:</label>
+        <div className="genres-box">
           <div>
             <input
               value="Action"
@@ -300,10 +310,9 @@ const FormPage = ({ submitPost }) => {
         </div>
 
         <div>
-          <div>
-            <label>Platforms:</label>
-          </div>
-
+          <label>Platforms:</label>
+        </div>
+        <div className="genres-box">
           <div>
             <input
               type="checkbox"

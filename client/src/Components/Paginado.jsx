@@ -1,4 +1,5 @@
 import React from "react";
+import "../Styles/Paginado.css";
 
 const Paginado = ({ pages, totalPages }) => {
   let arrPages = [];
@@ -16,7 +17,7 @@ const Paginado = ({ pages, totalPages }) => {
   };
 
   return (
-    <div>
+    <div className="containter">
       {arrPages &&
         arrPages.map((e, i) => (
           <button
