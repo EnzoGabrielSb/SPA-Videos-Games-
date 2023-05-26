@@ -91,7 +91,7 @@ const FormPage = ({ submitPost }) => {
 
   return (
     <div>
-      <form onSubmit={(e) => handleSubmit(e)}>
+      <form className="form" onSubmit={(e) => handleSubmit(e)}>
         <h3>Create a new VideoGame!</h3>
         <div>
           <label htmlFor="">Name of the game:</label>

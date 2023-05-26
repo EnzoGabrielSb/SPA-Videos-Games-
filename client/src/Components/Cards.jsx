@@ -58,7 +58,7 @@ function Cards({ getAllGames, videogames, findById }) {
                     <div className="spanTitulo">
                       <h5>
                         Genres:
-                        {e.genres.map((ele, i) => (
+                        {e.genres?.map((ele, i) => (
                           <h6 key={i}>{ele}</h6>
                         ))}
                       </h5>

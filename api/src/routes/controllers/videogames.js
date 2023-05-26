@@ -60,7 +60,7 @@ const getAPIinfo = async () => {
 };
 
 const getDBInfo = async () => {
-  return await Videogame.findAll({
+  let videoGamesDb = await Videogame.findAll({
     include: {
       model: Genre,
       attributes: ["name"],
@@ -69,6 +69,20 @@ const getDBInfo = async () => {
       },
     },
   });
+
+  videoGamesDb = videoGamesDb?.map((e) => {
+    return {
+      id: e.id,
+      name: e.name,
+      description: e.description,
+      released: e.released,
+      rating: e.rating,
+      platforms: e.platforms,
+      image: e.image,
+    };
+  });
+
+  return videoGamesDb;
 };
 
 const getAllVideoGamesInfo = async () => {
